@@ -2,7 +2,8 @@
 
 int main ()
 {
-//comment
-//comment2
-  return 0;
+    char* data="goose";
+    printf("%s\n", data);
+    printf("%d\n", data[1]-'a');
+    return 0;
 }
