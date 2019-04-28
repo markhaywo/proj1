@@ -110,6 +110,35 @@ int main ()
             }
             break;
 
+        case 3:
+            printf("Enter message to be decrypted\n");
+            fgets(data, 100, stdin);                            //this command removes unwanted new line character from stdin
+            fgets(data, 100, stdin);
+            printf("Enter rotation amount: \n");
+            scanf("%d", &k);
+
+            while(data[i]!=0)
+            {
+                if((data[i]>='a') && (data[i]<='z'))
+                {
+                    m = data[i] - 'a';
+                    m = (m - k)%26;
+                    result[i] = m + 'a';
+                }
+                else if((data[i]>='A') && (data[i]<='Z'))
+                {
+                    m = data[i] - 'A';
+                    m = (m - k)%26;
+                    result[i] = m + 'A';
+                }
+                else
+                {
+                    result[i] = data[i];
+                }
+                i++;
+            }
+            break;
+
 
     }
     result[i] = 0;
