@@ -30,29 +30,29 @@ void validate_cipher(char* cipher)                                //function tes
                 {
                     cipher_valid = 1;
 
-                    for(c = 'a'; c <= 'z'; c++)                   //looping through each character
+                    for(c = 'a'; c <= 'z'; c++)                   //looping through each character in the alphabet
                     {
                         count = 0;
-                        for(i = 0; i <= 26; i++)
+                        for(i = 0; i < 26; i++)                  //looping through the cipher to match character
                         {
-                            if(cipher[i] == c)
+                            if(cipher[i] == c)                    //count how many matching characters are found - there should be 1 of each character
                             {
                                 count++;
                             }
                         }
-                        if(count > 1)
+                        if(count > 1)                             //character was found more than once
                         {
                             printf("Duplicate %c entered in cipher!\n", c);
                             cipher_valid = 0;
                         }
-                        else if(count == 0)
+                        else if(count == 0)                       //character wasnt found
                         {
                             printf("Missing %c in cipher!\n", c);
                             cipher_valid = 0;
                         }
                     }
                 }
-                else
+                else                                              //not enough characters entered
                 {
                     printf("Cipher needs to be 26 characters long!\n");
                     cipher_valid = 0;
@@ -67,19 +67,19 @@ void rotation(char* data, char* result, int k)
     int i = 0;
                 while(data[i]!=0)
             {
-                if((data[i]>='a') && (data[i]<='z'))
+                if((data[i]>='a') && (data[i]<='z'))              //testing if charcter is lowercase
                 {
-                    m = data[i] - 'a';
-                    m = (m + k)%26;
-                    result[i] = m + 'a';
+                    m = data[i] - 'a';                            //rotation of ascii code
+                    m = (m + k)%26;                               //calculation for new charcter
+                    result[i] = m + 'a';                          //put new character back into result string
                 }
-                else if((data[i]>='A') && (data[i]<='Z'))
+                else if((data[i]>='A') && (data[i]<='Z'))         //test if character is uppercase
                 {
                     m = data[i] - 'A';
                     m = (m + k)%26;
                     result[i] = m + 'A';
                 }
-                else
+                else                                              //dont encrypted other characters, for example 'space'
                 {
                     result[i] = data[i];
                 }
@@ -98,17 +98,17 @@ void substitution_encryption(char* data, char* result)
 
             while(data[i]!=0)
             {
-                if((data[i]>='a') && (data[i]<='z'))
+                if((data[i]>='a') && (data[i]<='z'))              //testing if charcter is lowercase
                 {
-                    m = data[i] - 'a';
-                    result[i] = cipher[m];
+                    m = data[i] - 'a';                            //convert character into 0 based code
+                    result[i] = cipher[m];                        //placing substituted character into string
                 }
-                else if((data[i]>='A') && (data[i]<='Z'))
+                else if((data[i]>='A') && (data[i]<='Z'))         //tetsing if character is uppercase
                 {
                     m = data[i] - 'A';
                     result[i] = cipher[m];
                 }
-                else
+                else                                              //dont encrypted illegal characters
                 {
                     result[i] = data[i];
                 }
