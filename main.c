@@ -11,7 +11,7 @@
 
 
 
-void validate_data(char* data, int length)
+void validate_data(char* data, int length)                        //testing the user entered data - therefore no unwanted characters in output
 {
     int i;
 
@@ -21,7 +21,7 @@ void validate_data(char* data, int length)
     }
     data[i] = 0;                                                  //terminate data string at first illegal character
 }
-void validate_cipher(char* cipher)                                //function testing thet cipher is entered correctly
+void validate_cipher(char* cipher)                                //testing thet cipher is entered correctly with no duplicate letters or illegal characters
 {
     int cipher_valid;
     int count;
@@ -67,7 +67,7 @@ void validate_cipher(char* cipher)                                //function tes
             while(cipher_valid == 0);
 
 }
-void rotation(char* data, char* result, int k)
+void rotation(char* data, char* result, int k)                    //main function for rotation cipher, calculating new characters and put them into the string
 {
     int m;
     int i = 0;
@@ -93,7 +93,7 @@ void rotation(char* data, char* result, int k)
             }
             result[i] = 0;
 }
-void substitution_encryption(char* data, char* result)
+void substitution_encryption(char* data, char* result)            //function to encrypt with substitution - finding substituted character
 {
     char cipher[27];
     int i = 0;
@@ -122,7 +122,7 @@ void substitution_encryption(char* data, char* result)
             }
             result[i] = 0;
 }
-void substitution_decryption(char* data, char* result)
+void substitution_decryption(char* data, char* result)            //search the cipher for matching characters in data and storing the into string
 {
     char cipher[27];
     int i = 0;
