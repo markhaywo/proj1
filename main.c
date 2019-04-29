@@ -1,6 +1,12 @@
+//Mark Haywood
+//C3281980
+//Project 1
+//Due Date: 29/04/2019
+
+
+
 #include <stdio.h>
 #include <string.h>
-
 
 
 
@@ -123,7 +129,7 @@ void substitution_decryption(char* data, char* result)
     int j;
 
         validate_cipher(cipher);
-        i = 0;
+        i = 0;                                                    //re-initialising loop variable
 
             while(data[i]!=0)
             {
